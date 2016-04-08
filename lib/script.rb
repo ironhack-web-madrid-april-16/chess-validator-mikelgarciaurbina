@@ -19,11 +19,15 @@ require 'pry'
 # 	[nil, nil, nil, nil, nil, nil, nil, nil],
 # 	[nil, nil, nil, :bP, nil, nil, nil, nil],
 # 	[nil, nil, nil, nil, nil, nil, nil, nil],
-# 	[nil, nil, nil, nil, nil, nil, nil, nil],
+# 	[nil, nil, nil, :wP, nil, nil, nil, nil],
 # 	[nil, nil, nil, nil, nil, nil, nil, nil],
 # 	[nil, nil, nil, nil, nil, nil, nil, nil],
 # 	[nil, nil, nil, nil, nil, nil, nil, nil],
 # 	[nil, nil, nil, nil, nil, nil, nil, nil]
+# ]
+
+# moves = [
+# 	[[1,3], [3,3]]
 # ]
 
 validators = {
@@ -40,3 +44,11 @@ board_matrix = ReadBoardFile.new("./files/simple_board.txt").read_file
 moves = ReadMovesFile.new("./files/simple_moves.txt").read_file
 
 board = Board.new(board_matrix, moves, validators, "./files/simple_results.txt").check_all_movies
+
+
+# board_matrix = ReadBoardFile.new("./files/complex_board.txt").read_file
+# moves = ReadMovesFile.new("./files/complex_moves.txt").read_file
+
+# binding.pry
+
+# board = Board.new(board_matrix, moves, validators, "./files/complex_results.txt").check_all_movies

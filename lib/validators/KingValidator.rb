@@ -1,7 +1,7 @@
 class KingValidator < Validator
 
 	def check_move?(team, origin, destination)
-		end_pos_free?(destination) && valid_king_movement?(origin, destination)
+		end_pos_free?(team, destination) && valid_king_movement?(origin, destination)
 	end
 
 	def valid_king_movement?(origin, destination)

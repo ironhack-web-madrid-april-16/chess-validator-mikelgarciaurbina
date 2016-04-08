@@ -1,7 +1,7 @@
 class PawnValidator < Validator
 
 	def check_move?(team, origin, destination)
-		end_pos_free?(destination) && valid_pawn_movement?(team, origin, destination)
+		end_pos_free?(team, destination) && valid_pawn_movement?(team, origin, destination)
 	end
 
 	def valid_pawn_movement?(team, origin, destination)

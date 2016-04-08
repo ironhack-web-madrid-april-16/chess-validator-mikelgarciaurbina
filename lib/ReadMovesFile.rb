@@ -12,7 +12,7 @@ class ReadMovesFile
 
 	def read_line(line)
 		line.split(" ").map do |position|
-			[position[1].to_i - 1, convert_char_to_index(position[0])]
+			[(position[1].to_i - 8).abs, convert_char_to_index(position[0])]
 		end
 	end
 
