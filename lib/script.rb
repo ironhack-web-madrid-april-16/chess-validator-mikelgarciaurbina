@@ -39,9 +39,4 @@ validators = {
 board_matrix = ReadBoardFile.new("./files/simple_board.txt").read_file
 moves = ReadMovesFile.new("./files/simple_moves.txt").read_file
 
-binding.pry
-
-a = HorseValidator.new(Board.new(board_matrix))
-puts a.check_move?("b" ,[1,3], [3, 2])
-puts a.check_move?("b" ,[1,3], [2, 1])
-puts a.check_move?("b" ,[1,3], [2, 5])
+board = Board.new(board_matrix, moves, validators).check_all_movies
