@@ -1,8 +1,9 @@
 class Board
-	def initialize(board_matrix, moves, validators)
+	def initialize(board_matrix, moves, validators, result_filepath)
 		@board_matrix = board_matrix
 		@moves = moves
 		@validators = validators
+		@result_filepath = result_filepath
 	end
 
 	def are_piece_in?(line, column)
@@ -14,6 +15,7 @@ class Board
 	end
 
 	def check_all_movies
+		result_file_write = []
 		@moves.each do |move|
 			origin, destination = []
 			origin = [move[0][0], move[0][1]]
@@ -22,10 +24,14 @@ class Board
 			#binding.pry
 			if team != nil
 				move_ok = @validators[piece].new(self).check_move?(team, origin, destination)
-				puts (move_ok) ? "LEGAL" : "ILLEGAL"
+				move_ok = (move_ok) ? "LEGAL" : "ILLEGAL"
+				result_file_write << move_ok
+				puts move_ok
 			else
+				result_file_write << "ILLEGAL"
 				puts "ILLEGAL"
 			end
 		end
+		IO.write(@result_filepath, result_file_write.join("\n"))
 	end
 end

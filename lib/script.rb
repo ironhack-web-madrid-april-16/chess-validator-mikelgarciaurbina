@@ -39,4 +39,4 @@ validators = {
 board_matrix = ReadBoardFile.new("./files/simple_board.txt").read_file
 moves = ReadMovesFile.new("./files/simple_moves.txt").read_file
 
-board = Board.new(board_matrix, moves, validators).check_all_movies
+board = Board.new(board_matrix, moves, validators, "./files/simple_results.txt").check_all_movies
