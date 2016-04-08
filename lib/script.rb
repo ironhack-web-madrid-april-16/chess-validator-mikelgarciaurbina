@@ -11,6 +11,7 @@ require_relative './validators/HorseValidator.rb'
 
 require_relative './Board.rb'
 require_relative './ReadBoardFile.rb'
+require_relative './ReadMovesFile.rb'
 
 require 'pry'
 
@@ -25,7 +26,18 @@ require 'pry'
 # 	[nil, nil, nil, nil, nil, nil, nil, nil]
 # ]
 
+validators = {
+	"R" => RookValidator,
+	"N" => HorseValidator,
+	"B" => BishopValidator,
+	"Q" => QueenValidator,
+	"K" => KingValidator,
+	"P" => PawnValidator
+
+}
+
 board_matrix = ReadBoardFile.new("./files/simple_board.txt").read_file
+moves = ReadMovesFile.new("./files/simple_moves.txt").read_file
 
 binding.pry
 
